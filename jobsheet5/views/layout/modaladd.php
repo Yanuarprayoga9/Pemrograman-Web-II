@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="..//views/add-action.php?aksi=tambah" method="post">
+                <form action="../mahasiswa/add-action.php" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">NIM</label>
                         <input type="number" class="form-control" name="npm" required>
@@ -54,7 +54,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">submit</button>
+                <button type="submit" class="btn btn-primary" name="submit">submit</button>
             </div>
             </form>
         </div>

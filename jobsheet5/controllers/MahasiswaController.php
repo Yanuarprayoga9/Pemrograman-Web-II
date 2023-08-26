@@ -8,6 +8,9 @@
         public function getAllMahasiswa(){
             return $this->model->getAllMahasiswa();
         }
+        public function createMahasiswa($npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat){
+            return $this->model->createMahasiswa($npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
+        }
     }
 
 
