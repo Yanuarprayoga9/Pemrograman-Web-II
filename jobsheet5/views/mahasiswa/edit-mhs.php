@@ -6,8 +6,30 @@ include_once '../../controllers/MahasiswaController.php';
 $database = new Database();
 $db= $database->get_koneksi();
 $mahasiswaController = new MahasiswaController($db);
-$mahasiswa = $mahasiswaController->getAllMahasiswa();
+$mahasiswa = $mahasiswaController->getMahasiswaById($_GET['id']);
+if (isset($_GET['id'])) {
+    $mahasiswa = $mahasiswaController->getMahasiswaById($_GET['id']);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Update the Mahasiswa record
+        $npm = $_POST['npm'];
+        $program_study = $_POST['program_study'];
+        $nama = $_POST['nama'];
+        $tempat_lahir = $_POST['tempat_lahir'];
+        $tanggal_lahir = $_POST['tanggal_lahir'];
+        $jenis_kelamin = $_POST['jenis_kelamin'];
+        $agama = $_POST['agama'];
+        $alamat = $_POST['alamat'];
+
+        $mahasiswaController->updateMahasiswa($_GET['id'], $npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
+
+        // Redirect back to the Mahasiswa list
+        header('Location: index.php'); // Replace with the actual URL
+        exit();
+    }
+}
 ?>
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +66,8 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
                         <td><?= $item['nama'] ?></td>
                         <td><?= $item['program_study'] ?></td>
                         <td>
-                            <a href="edit-mhs.php?id=<?= $item['npm'] ?>">edit</a>
-                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus">hapus</a>
+                            <a href="edit-mhs.php?id=<?= $item['npm'] ?>&aksi=edit">edit</a>
+                            <a href="">hapus</a>
                         </td>
                     </tr>
                 <?php
@@ -54,7 +76,9 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
         </table>
     </div>
 
-
+    <div class="container my-3">
+        <?php include'../layout/edit-form.php'?>
+    </div>
 
     <?php include '../layout/script.php' ?>
     <?php include '../layout/modaladd.php' ?>

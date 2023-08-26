@@ -1,6 +1,6 @@
-<form action="../views/add-action.php?aksi=update&id=<?php echo $_GET['id']; ?>" method="post">
+<form action="?id=<?php echo $_GET['id']; ?>" method="post">
     <?php 
-     foreach ($db->edit_mahasiswa($_GET['id']) as $item) {
+     foreach ($mahasiswa as $item) {
     ?>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">NIM</label>
@@ -43,7 +43,7 @@
             <textarea class="form-control" placeholder="alamat" id="floatingTextarea2" style="height: 100px" name="alamat"><?php echo $item['alamat']; ?></textarea>
             <label for="floatingTextarea2">Alamat</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
     <?php 
      }
