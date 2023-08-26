@@ -32,6 +32,9 @@ class Database {
         $query = "UPDATE mahasiswa SET npm = '$npm', program_study = '$program_study', nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', agama = '$agama', alamat = '$alamat' WHERE npm = $id";
         mysqli_query($this->koneksi, $query);
     }
+    function hapus($id){
+        mysqli_query($this->koneksi,"DELETE from mahasiswa where npm='$id'");
+    }
 }
 
 

@@ -13,19 +13,19 @@
                 <form action="..//views/add-action.php?aksi=tambah" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">NIM</label>
-                        <input type="number" class="form-control" name="npm">
+                        <input type="number" class="form-control" name="npm" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">nama</label>
-                        <input type="text" class="form-control" name="nama">
+                        <input type="text" class="form-control" name="nama" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">program studi</label>
-                        <input type="text" class="form-control" name="program_study">
+                        <input type="text" class="form-control" name="program_study" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label"> tempat lahir</label>
-                        <input type="text" class="form-control" name="tempat_lahir">
+                        <input type="text" class="form-control" name="tempat_lahir" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">tanggall lahir</label>
@@ -45,10 +45,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">agama</label>
-                        <input type="text" class="form-control" name="agama">
+                        <input type="text" class="form-control" name="agama" required>
                     </div>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="alamat" id="floatingTextarea2" style="height: 100px" name="alamat"></textarea>
+                        <textarea class="form-control" placeholder="alamat" id="floatingTextarea2" style="height: 100px" name="alamat" required></textarea>
                         <label for="floatingTextarea2">Alamat</label>
                     </div>
             </div>

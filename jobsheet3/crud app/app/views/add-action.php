@@ -3,7 +3,6 @@
 include '../classes/Database.php';
 $db = new Database();
 $aksi = $_GET['aksi'];
-$id = $_GET['id'];
 if ($aksi == "tambah") {
     $npm = $_POST['npm'];
     $program_study = $_POST['program_study'];
@@ -20,6 +19,7 @@ if ($aksi == "tambah") {
     header("Location: ../views/index.php"); 
     exit;
 }elseif($aksi == "update") {
+    $id = $_GET['id'];
     $npm = $_POST['npm'];
     $program_study = $_POST['program_study'];
     $nama = $_POST['nama'];
@@ -32,6 +32,11 @@ if ($aksi == "tambah") {
     $db->update_mahasiswa($id,$npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
 
 
+    header("Location: ../views/index.php"); 
+    exit;
+}elseif($aksi == "hapus"){
+
+    $db->hapus($_GET['id']);
     header("Location: ../views/index.php"); 
     exit;
 }

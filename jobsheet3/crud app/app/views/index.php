@@ -39,7 +39,7 @@ $db = new Database();
                         <td><?= $item['program_study'] ?></td>
                         <td>
                             <a href="edit-mhs.php?id=<?= $item['npm'] ?>&aksi=edit">edit</a>
-                            <a href="">hapus</a>
+                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus">hapus</a>
                         </td>
                     </tr>
                 <?php
