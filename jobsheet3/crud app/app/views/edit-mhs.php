@@ -48,7 +48,9 @@ $db = new Database();
         </table>
     </div>
 
-
+    <div class="container my-3">
+        <?php include'./layout/edit-form.php'?>
+    </div>
 
     <?php include '../views/layout/script.php' ?>
     <?php include '../views/layout/modaladd.php' ?>
