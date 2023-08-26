@@ -1,26 +1,20 @@
-<?php 
-class mahasiswa {
-   public $nim=220302072;
-   public $nama="Yanuar Prayoga";
-   public $alamat="Kebumen";
+<?php
+class dosen {
+    private $nidn = 220302072;
+    var $nama = 'Yanuar Prayoga';
+    var $prodi = 'Teknik informatika';
 
-   function __construct($nim,$nama,$alamat) {
-    $this->nama = $nim;
-    $this->nama = $nama;
-    $this->nama = $alamat;
-  }
-//   function __destruct() {
-//     echo "The fruit is {$this->name} and the color is {$this->color}.";
-//   }
-  function tampil_nama() {
-    return $this->nama;
-  }
-  function tampil_alamat() {
-    return $this->alamat;
-  }
+    public function tampil_nama() {
+        return 'Nama saya adalah ' . $this->nama;
+    }
+   
+    public function tampil_prodi() {
+        return 'Prodi = ' . $this->prodi;
+    }
 }
-$yanuar = new mahasiswa();
-echo 'Nama = '.$yanuar->tampil_nama();
+
+$yanuar = new dosen();//
+echo $yanuar->tampil_nama();
 echo '<br>';
-echo 'alamat = '.$yanuar->tampil_alamat();
+echo $yanuar->tampil_prodi();
 ?>
