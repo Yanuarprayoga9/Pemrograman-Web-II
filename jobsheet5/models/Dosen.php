@@ -11,26 +11,26 @@ class Dosen{
     
         return $result;
     }
-    public function createDosen($npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat) {
-        $query = "INSERT INTO Dosen (npm, program_study, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, agama, alamat) 
-                  VALUES ('$npm', '$program_study', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$agama', '$alamat')";
+    public function createDosen($nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat) {
+        $query = "INSERT INTO Dosen (nip, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, agama, alamat) 
+                  VALUES ('$nip', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$agama', '$alamat')";
         mysqli_query($this->koneksi, $query);
     }
 
     public function getDosenById($id) {
-        $data = mysqli_query($this->koneksi, "select * from Dosen where npm = $id");
+        $data = mysqli_query($this->koneksi, "select * from Dosen where nip = $id");
         while($d = mysqli_fetch_array($data)){
             $hasil[] = $d;
         }
         return $hasil;
     }
-    public function updateDosen($id, $npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat) {
-        $query = "UPDATE Dosen SET npm = '$npm', program_study = '$program_study', nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', agama = '$agama', alamat = '$alamat' WHERE npm = $id";
+    public function updateDosen($id, $nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat) {
+        $query = "UPDATE Dosen SET nip = '$nip', program_study , nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', agama = '$agama', alamat = '$alamat' WHERE nip = $id";
         mysqli_query($this->koneksi, $query);
     }
 
     public function deleteDosen($id){
-        mysqli_query($this->koneksi,"DELETE from Dosen where npm='$id'");
+        mysqli_query($this->koneksi,"DELETE from Dosen where nip='$id'");
     }
 }
 

@@ -1,21 +1,18 @@
 <!-- File: functions.php -->
 
 <?php
-// Fungsi untuk menghitung luas lingkaran
 function hitungLuasLingkaran($jariJari)
 {
     $luas = pi() * $jariJari * $jariJari;
     return $luas;
 }
 
-// Fungsi untuk menghitung luas persegi
 function hitungLuasPersegi($sisi)
 {
     $luas = $sisi * $sisi;
     return $luas;
 }
 
-// Fungsi untuk menghitung luas segitiga
 function hitungLuasSegitiga($alas, $tinggi)
 {
     $luas = 0.5 * $alas * $tinggi;
@@ -31,17 +28,47 @@ function hitungLuasSegitiga($alas, $tinggi)
 </head>
 
 <body>
+    <h2>Perhitungan Luas</h2>
+    <form method="post">
+        <label>Jari-Jari Lingkaran:</label>
+        <input type="number" name="jariJariLingkaran">
+        <br>
+        <input type="submit" name="hitungLingkaran" value="Hitung Luas Lingkaran">
+    </form>
+    <br><br>
+    <form method="post">
+        <label>Sisi Persegi:</label>
+        <input type="number" name="sisiPersegi">
+        <br>
+        <input type="submit" name="hitungPersegi" value="Hitung Luas Persegi">
+    </form>
+    <br><br>
+    <form method="post">
+        <label>Alas Segitiga:</label>
+        <input type="number" name="alasSegitiga">
+        <label>Tinggi Segitiga:</label>
+        
+        <input type="number" name="tinggiSegitiga">
+        <br>
+        <input type="submit" name="hitungSegitiga" value="Hitung Luas Segitiga">
+    </form>
+    <br>
     <?php
-    $jariJariLingkaran = 5;
-    $sisiPersegi = 4;
-    $alasSegitiga = 6;
-    $tinggiSegitiga = 8;
+    if (isset($_POST['hitungLingkaran'])) {
+        $jariJariLingkaran = $_POST['jariJariLingkaran'];
+        echo "Luas Lingkaran dengan jari-jari $jariJariLingkaran adalah: " . hitungLuasLingkaran($jariJariLingkaran);
+    }
 
-    echo "<h2>Hasil Perhitungan:</h2>";
+    if (isset($_POST['hitungPersegi'])) {
+        $sisiPersegi = $_POST['sisiPersegi'];
+        echo "Luas Persegi dengan sisi $sisiPersegi adalah: " . hitungLuasPersegi($sisiPersegi);
+    }
 
-    echo "Luas Lingkaran dengan jari-jari $jariJariLingkaran adalah: " . hitungLuasLingkaran($jariJariLingkaran) . "<br>";
-    echo "Luas Persegi dengan sisi $sisiPersegi adalah: " . hitungLuasPersegi($sisiPersegi) . "<br>";
-    echo "Luas Segitiga dengan alas $alasSegitiga dan tinggi $tinggiSegitiga adalah: " . hitungLuasSegitiga($alasSegitiga, $tinggiSegitiga) . "<br>";
+    if (isset($_POST['hitungSegitiga'])) {
+        $alasSegitiga = $_POST['alasSegitiga'];
+        $tinggiSegitiga = $_POST['tinggiSegitiga'];
+        echo "Luas Segitiga dengan alas $alasSegitiga dan tinggi $tinggiSegitiga adalah: " . hitungLuasSegitiga($alasSegitiga, $tinggiSegitiga);
+    }
     ?>
 </body>
 

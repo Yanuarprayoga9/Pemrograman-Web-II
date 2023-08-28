@@ -9,9 +9,23 @@ function branching($angka){
         echo "Angka $angka adalah nol.";
     }
 }
-branching(5);
-echo '<br>';
-branching(0);
-echo '<br>';
-branching(-5);
+
+if (isset($_POST['submit'])) {
+    $inputAngka = intval($_POST['angka']);
+    branching($inputAngka);
+}
+
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Branching Function</title>
+</head>
+<body>
+    <form method="post">
+        Masukkan angka: <input type="number" name="angka">
+        <input type="submit" name="submit" value="Cek">
+    </form>
+</body>
+</html>

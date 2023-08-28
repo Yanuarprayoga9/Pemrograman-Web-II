@@ -1,26 +1,24 @@
 <?php
 include_once '../../config.php';
-include_once '../../models/Mahasiswa.php';
-include_once '../../controllers/MahasiswaController.php';
+include_once '../../models/Dosen.php';
+include_once '../../controllers/DosenController.php';
 
 $database = new Database();
-$db= $database->get_koneksi();
-$mahasiswaController = new MahasiswaController($db);
-$mahasiswa = $mahasiswaController->getAllMahasiswa();
+$db = $database->get_koneksi();
+$DosenController = new DosenController($db);
+$Dosen = $DosenController->getAllDosen();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include '../layout/head.php' ?>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-</head>
+    <?php include '../layout/head.php' ?></head>
 
 <body>
     <?php include '../layout/navbar.php' ?>
     <div class="container mt-3">
-        <h1>Mahasiswa</h1>
+        <h1>Dosen</h1>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah data
         </button>
@@ -28,9 +26,8 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">NPM</th>
+                    <th scope="col">NIP</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">program studi</th>
                     <th scope="col">Tempat Lahir</th>
                     <th scope="col">Tanggal Lahir</th>
                     <th scope="col">Jenis Kelamin</th>
@@ -42,21 +39,20 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
             <tbody class="table-group-divider">
                 <?php
                 $no = 1;
-                foreach ($mahasiswa as $item) {
+                foreach ($Dosen as $item) {
                 ?>
                     <tr>
                         <th scope="row"><?= $no++ ?></th>
-                        <td><?= $item['npm'] ?></td>
+                        <td><?= $item['nip'] ?></td>
                         <td><?= $item['nama'] ?></td>
-                        <td><?= $item['program_study'] ?></td>
                         <td><?= $item['tempat_lahir'] ?></td>
                         <td><?= $item['tanggal_lahir'] ?></td>
                         <td><?= $item['jenis_kelamin'] ?></td>
                         <td><?= $item['agama'] ?></td>
                         <td><?= $item['alamat'] ?></td>
                         <td>
-                            <a href="edit-mhs.php?id=<?= $item['npm'] ?>">edit</a>
-                            <a href="delete.php?id=<?= $item['npm'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')">hapus</a>
+                            <a href="edit-mhs.php?id=<?= $item['nip'] ?>">edit</a>
+                            <a href="delete.php?id=<?= $item['nip'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')">hapus</a>
                         </td>
                     </tr>
                 <?php
@@ -68,7 +64,7 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
 
 
     <?php include '../layout/script.php' ?>
-    <?php include '../layout/modaladd.php' ?>
+    <?php include '../Component-dosen/modaladd.php' ?>
 </body>
 
 </html>
