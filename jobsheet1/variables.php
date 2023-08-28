@@ -1,12 +1,25 @@
-<?php 
-// Deklarasi variabel dengan tipe data berbeda
-$integerVar = 42;          // Tipe data: integer
-$stringVar = "Hello, PHP!"; // Tipe data: string
-$booleanVar = true;        // Tipe data: boolean
+<!DOCTYPE html>
+<html lang="en">
 
-// Menampilkan isi variabel-variabel
-echo "Nilai dari integerVar: " . $integerVar . "<br>";
-echo "Nilai dari stringVar: " . $stringVar . "<br>";
-echo "Nilai dari booleanVar: " . ($booleanVar ? 'true' : 'false') . "<br>";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-?>
+<body>
+    <?php
+    $integer = 220302072;
+    $stringVar = "Yanuar Prayoga";
+    $boolean = true;
+
+    // Menampilkan isi variabel-variabel
+
+    if ($boolean) {
+        echo "saya " . $stringVar . "NIM" . $integer . "siap mengikuti pweb II";
+    }
+
+    ?>
+</body>
+
+</html>
