@@ -1,5 +1,5 @@
 <?php 
-    include_once '../../models/Mahasiswa.php';
+    include_once '../../models/Dosen.php';
     class MahasiswaController{
         private $model;
         public function __construct($db){

@@ -45,7 +45,7 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
                         <td><?= $item['program_study'] ?></td>
                         <td>
                             <a href="edit-mhs.php?id=<?= $item['npm'] ?>">edit</a>
-                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus">hapus</a>
+                            <a href="delete.php?id=<?= $item['npm'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')">hapus</a>
                         </td>
                     </tr>
                 <?php
