@@ -40,4 +40,43 @@ if ($aksi == "tambah") {
     header("Location: ../views/index.php"); 
     exit;
 }
+
+
+
+// Dosen
+if ($aksi == "tambahdosen") {
+    $nip = $_POST['nip'];
+    $nama = $_POST['nama'];
+    $tempat_lahir = $_POST['tempat_lahir'];
+    $tanggal_lahir = $_POST['tanggal_lahir'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $agama = $_POST['agama'];
+    $alamat = $_POST['alamat'];
+
+    $db->tambah_dosen($nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
+
+
+    header("Location: ../views/dosenindex.php"); 
+    exit;
+}elseif($aksi == "updatedosen") {
+    $id = $_GET['id'];
+    $nip = $_POST['nip'];
+    $nama = $_POST['nama'];
+    $tempat_lahir = $_POST['tempat_lahir'];
+    $tanggal_lahir = $_POST['tanggal_lahir'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $agama = $_POST['agama'];
+    $alamat = $_POST['alamat'];
+
+    $db->update_dosen($id, $nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
+
+
+    header("Location: ../views/dosenindex.php"); 
+    exit;
+}elseif($aksi == "hapusdosen"){
+
+    $db->hapus_dosen($_GET['id']);
+    header("Location: ../views/dosenindex.php"); 
+    exit;
+}
 ?>

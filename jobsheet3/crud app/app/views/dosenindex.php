@@ -12,10 +12,9 @@ $db = new Database();
 </head>
 
 <body>
-    <?php include('./layout/navbar.php') ?>
-
+   <?php include('./layout/navbar.php')?>
     <div class="container mt-3">
-        <h1>Mahasiswa</h1>
+        <h1>Dosen</h1>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah data
         </button>
@@ -23,9 +22,8 @@ $db = new Database();
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">NPM</th>
+                    <th scope="col">NIP</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">program studi</th>
                     <th scope="col">Tempat Lahir</th>
                     <th scope="col">Tanggal Lahir</th>
                     <th scope="col">Jenis Kelamin</th>
@@ -37,21 +35,20 @@ $db = new Database();
             <tbody class="table-group-divider">
                 <?php
                 $no = 1;
-                foreach ($db->tampil_mahasiswa() as $item) {
+                foreach ($db->tampil_dosen() as $item) {
                 ?>
                     <tr>
                         <th scope="row"><?= $no++ ?></th>
-                        <td><?= $item['npm'] ?></td>
+                        <td><?= $item['nip'] ?></td>
                         <td><?= $item['nama'] ?></td>
-                        <td><?= $item['program_study'] ?></td>
                         <td><?= $item['tempat_lahir'] ?></td>
                         <td><?= $item['tanggal_lahir'] ?></td>
                         <td><?= $item['jenis_kelamin'] ?></td>
                         <td><?= $item['agama'] ?></td>
                         <td><?= $item['alamat'] ?></td>
                         <td>
-                            <a href="edit-mhs.php?id=<?= $item['npm'] ?>&aksi=edit">edit</a>
-                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus">hapus</a>
+                            <a href="edit-dosen.php?id=<?= $item['nip'] ?>&aksi=editdosen">edit</a>
+                            <a href="./add-action.php?id=<?= $item['nip'] ?>&aksi=hapusdosen">hapus</a>
                         </td>
                     </tr>
                 <?php
@@ -63,7 +60,7 @@ $db = new Database();
 
 
     <?php include '../views/layout/script.php' ?>
-    <?php include '../views/component/modalMhs.php' ?>
+    <?php include '../views/component/modalDosen.php' ?>
 </body>
 
 </html>

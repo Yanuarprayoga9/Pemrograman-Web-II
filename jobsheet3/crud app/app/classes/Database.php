@@ -35,6 +35,38 @@ class Database {
     function hapus($id){
         mysqli_query($this->koneksi,"DELETE from mahasiswa where npm='$id'");
     }
+
+
+
+
+
+    // Method For Dosen
+    function tampil_dosen(){
+        $data = mysqli_query($this->koneksi,"select * from dosen");
+        while($d=mysqli_fetch_array($data)){
+            $hasil[]=$d;
+        }
+        return $hasil;
+    }
+    function tambah_dosen($nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat) {
+        $query = "INSERT INTO dosen (nip, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, agama, alamat) 
+                  VALUES ('$nip', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$agama', '$alamat')";
+        mysqli_query($this->koneksi, $query);
+    }
+    function edit_dosen($id) {
+        $data = mysqli_query($this->koneksi, "select * from dosen where nip = $id");
+        while($d = mysqli_fetch_array($data)){
+            $hasil[] = $d;
+        }
+        return $hasil;
+    }
+    function update_dosen($id, $nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat) {
+        $query = "UPDATE dosen SET nip = '$nip', nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', agama = '$agama', alamat = '$alamat' WHERE nip = $id";
+        mysqli_query($this->koneksi, $query);
+    }
+    function hapus_dosen($id){
+        mysqli_query($this->koneksi,"DELETE from dosen where nip='$id'");
+    }
 }
 
 
