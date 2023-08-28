@@ -16,7 +16,7 @@ if ($aksi == "tambah") {
     $db->tambah_mahasiswa($npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
 
 
-    header("Location: ../views/index.php"); 
+    header("Location: ../views/index.php?status=success"); 
     exit;
 }elseif($aksi == "update") {
     $id = $_GET['id'];
@@ -56,7 +56,7 @@ if ($aksi == "tambahdosen") {
     $db->tambah_dosen($nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
 
 
-    header("Location: ../views/dosenindex.php"); 
+    header("Location: ../views/dosenindex.php?status=success"); 
     exit;
 }elseif($aksi == "updatedosen") {
     $id = $_GET['id'];

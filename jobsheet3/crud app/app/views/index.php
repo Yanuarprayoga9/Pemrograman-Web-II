@@ -1,6 +1,7 @@
 <?php
 include '../classes/Database.php';
 $db = new Database();
+
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +13,20 @@ $db = new Database();
 </head>
 
 <body>
+
     <?php include('./layout/navbar.php') ?>
 
     <div class="container mt-3">
         <h1>Mahasiswa</h1>
+        <?php
+        if (isset($_GET['status']) && $_GET['status'] === 'success') {
+        ?>
+            <div class="alert alert-success" id="success-alert" role="alert">
+                Berhasil menambahkan data
+            </div>
+        <?php
+        }
+        ?>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah data
         </button>
@@ -50,8 +61,8 @@ $db = new Database();
                         <td><?= $item['agama'] ?></td>
                         <td><?= $item['alamat'] ?></td>
                         <td>
-                            <a href="edit-mhs.php?id=<?= $item['npm'] ?>&aksi=edit">edit</a>
-                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus">hapus</a>
+                            <a href="edit-mhs.php?id=<?= $item['npm'] ?>&aksi=edit" class="btn btn-warning">edit</a>
+                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                 <?php
@@ -61,8 +72,11 @@ $db = new Database();
     </div>
 
 
-
+    <script>
+     
+    </script>
     <?php include '../views/layout/script.php' ?>
+    <script src="./layout/script.js"></script>
     <?php include '../views/component/modalMhs.php' ?>
 </body>
 

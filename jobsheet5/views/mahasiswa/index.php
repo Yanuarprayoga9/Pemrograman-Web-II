@@ -24,6 +24,15 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah data
         </button>
+        <?php
+        if (isset($_GET['status']) && $_GET['status'] === 'success') {
+        ?>
+            <div class="alert alert-success" id="success-alert" role="alert">
+                Berhasil menambahkan data
+            </div>
+        <?php
+        }
+        ?>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -55,8 +64,8 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
                         <td><?= $item['agama'] ?></td>
                         <td><?= $item['alamat'] ?></td>
                         <td>
-                            <a href="edit-mhs.php?id=<?= $item['npm'] ?>">edit</a>
-                            <a href="delete.php?id=<?= $item['npm'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')">hapus</a>
+                            <a href="edit-mhs.php?id=<?= $item['npm'] ?> "  class="btn btn-warning">edit</a>
+                            <a href="delete.php?id=<?= $item['npm'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin ingin menghapus')" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                 <?php
@@ -68,6 +77,7 @@ $mahasiswa = $mahasiswaController->getAllMahasiswa();
 
 
     <?php include '../layout/script.php' ?>
+    <script src="../../public/assets/js/script.js"></script>
     <?php include '../layout/modaladd.php' ?>
 </body>
 

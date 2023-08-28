@@ -18,6 +18,15 @@ $db = new Database();
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah data
         </button>
+        <?php
+        if (isset($_GET['status']) && $_GET['status'] === 'success') {
+        ?>
+            <div class="alert alert-success" role="alert">
+                Berhasil menambahkan data
+            </div>
+        <?php
+        }
+        ?>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -47,8 +56,8 @@ $db = new Database();
                         <td><?= $item['agama'] ?></td>
                         <td><?= $item['alamat'] ?></td>
                         <td>
-                            <a href="edit-dosen.php?id=<?= $item['nip'] ?>&aksi=editdosen">edit</a>
-                            <a href="./add-action.php?id=<?= $item['nip'] ?>&aksi=hapusdosen">hapus</a>
+                            <a href="edit-dosen.php?id=<?= $item['nip'] ?>&aksi=editdosen" class="btn btn-warning">edit</a>
+                            <a href="./add-action.php?id=<?= $item['nip'] ?>&aksi=hapusdosen" onclick="return confirm('Apakah yakin iniin menghapus')" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                 <?php
@@ -60,6 +69,7 @@ $db = new Database();
 
 
     <?php include '../views/layout/script.php' ?>
+    <script src="./layout/script.js"></script>
     <?php include '../views/component/modalDosen.php' ?>
 </body>
 

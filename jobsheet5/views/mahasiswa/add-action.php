@@ -17,5 +17,5 @@ if (isset($_POST['submit'])) {
     $mahasiswaController = new MahasiswaController($db);
     $result = $mahasiswaController->createMahasiswa($npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
 
-    header("location:index.php");
+    header("location:index.php?status=success");
 }

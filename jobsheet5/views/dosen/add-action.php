@@ -16,5 +16,5 @@ if (isset($_POST['submit'])) {
     $DosenController = new DosenController($db);
     $result = $DosenController->createDosen($nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
 
-    header("location:index.php");
+    header("location:index.php?status=success");
 }
