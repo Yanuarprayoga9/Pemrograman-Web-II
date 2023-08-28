@@ -1,19 +1,15 @@
 <form action="?id=<?php echo $_GET['id']; ?>" method="post">
     <?php 
-     foreach ($mahasiswa as $item) {
+     foreach ($dosen as $item) {
     ?>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">NIM</label>
-            <input type="number" class="form-control" name="npm" value="<?php echo $item['npm']; ?>">
+            <label for="exampleInputEmail1" class="form-label">NIP</label>
+            <input type="number" class="form-control" name="nip" value="<?php echo $item['nip']; ?>">
             <input type="number" class="form-control" name="id" value="<?php echo $_GET['id']; ?>" disabled>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">nama</label>
             <input type="text" class="form-control" name="nama" value="<?php echo $item['nama']; ?>">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">program studi</label>
-            <input type="text" class="form-control" name="program_study" value="<?php echo $item['program_study']; ?>">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label"> tempat lahir</label>

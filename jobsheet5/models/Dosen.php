@@ -25,7 +25,7 @@ class Dosen{
         return $hasil;
     }
     public function updateDosen($id, $nip, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat) {
-        $query = "UPDATE Dosen SET nip = '$nip', program_study , nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', agama = '$agama', alamat = '$alamat' WHERE nip = $id";
+        $query = "UPDATE Dosen SET nip = '$nip' , nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', agama = '$agama', alamat = '$alamat' WHERE nip = $id";
         mysqli_query($this->koneksi, $query);
     }
 

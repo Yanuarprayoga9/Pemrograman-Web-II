@@ -51,7 +51,7 @@ $Dosen = $DosenController->getAllDosen();
                         <td><?= $item['agama'] ?></td>
                         <td><?= $item['alamat'] ?></td>
                         <td>
-                            <a href="edit-mhs.php?id=<?= $item['nip'] ?>">edit</a>
+                            <a href="edit-dosen.php?id=<?= $item['nip'] ?>">edit</a>
                             <a href="delete.php?id=<?= $item['nip'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')">hapus</a>
                         </td>
                     </tr>
