@@ -1,4 +1,3 @@
-<!-- File: functions.php -->
 
 <?php
 function hitungLuasLingkaran($jariJari)

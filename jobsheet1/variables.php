@@ -16,7 +16,7 @@
     // Menampilkan isi variabel-variabel
 
     if ($boolean) {
-        echo "saya " . $stringVar . "NIM" . $integer . "siap mengikuti pweb II";
+        echo "Saya " . $stringVar . " NIM " . $integer . " siap mengikuti pweb II";
     }
 
     ?>

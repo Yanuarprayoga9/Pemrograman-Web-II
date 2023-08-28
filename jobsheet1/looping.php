@@ -25,6 +25,28 @@
         }
         ?>
     </ul>
+    <ul>
+    <?php
+       $num = 2;
+
+       do {
+           $isPrime = true;
+
+           for ($i = 2; $i <= sqrt($num); $i++) {
+               if ($num % $i == 0) {
+                   $isPrime = false;
+                   break;
+               }
+           }
+
+           if ($isPrime) {
+               echo "<li>$num</li>";
+           }
+
+           $num++;
+       } while ($num <= 10);
+       ?>
+    </ul>
 </body>
 
 </html>
