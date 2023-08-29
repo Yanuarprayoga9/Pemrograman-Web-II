@@ -6,8 +6,9 @@
     <button data-modal-target="addCustomer" data-modal-toggle="addCustomer"
         class="block  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button">
-        Toggle modal
+        Tambah 
     </button>
+    <x-button message="test"/>
     @if (Session::has('update'))
         <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
             role="alert">
@@ -116,9 +117,9 @@
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             <!-- Modal -->
                             <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                type="button">
-                                Toggle modal
+                                
+                                type="button" class="text-blue-700"> 
+                                Delete
                             </button>
 
                             <div id="popup-modal" tabindex="-1"
