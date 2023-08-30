@@ -21,7 +21,7 @@ $db = new Database();
         <?php
         if (isset($_GET['status']) && $_GET['status'] === 'success') {
         ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success" id="success-alert" role="alert">
                 Berhasil menambahkan data
             </div>
         <?php
@@ -57,7 +57,7 @@ $db = new Database();
                         <td><?= $item['alamat'] ?></td>
                         <td>
                             <a href="edit-dosen.php?id=<?= $item['nip'] ?>&aksi=editdosen" class="btn btn-warning">edit</a>
-                            <a href="./add-action.php?id=<?= $item['nip'] ?>&aksi=hapusdosen" onclick="return confirm('Apakah yakin iniin menghapus')" class="btn btn-danger">hapus</a>
+                            <a href="./add-action.php?id=<?= $item['nip'] ?>&aksi=hapusdosen" onclick="return confirm('Apakah yakin ingin menghapus')" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                 <?php

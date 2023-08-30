@@ -62,7 +62,7 @@ $db = new Database();
                         <td><?= $item['alamat'] ?></td>
                         <td>
                             <a href="edit-mhs.php?id=<?= $item['npm'] ?>&aksi=edit" class="btn btn-warning">edit</a>
-                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')" class="btn btn-danger">hapus</a>
+                            <a href="./add-action.php?id=<?= $item['npm'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin ingin menghapus')" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                 <?php
