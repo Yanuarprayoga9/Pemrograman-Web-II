@@ -1,15 +1,18 @@
 <?php
-include_once '../../config.php';
-include_once '../../models/Dosen.php';
-include_once '../../controllers/DosenController.php';
-require '../../index.php';
-
-$database = new Database();
-$db = $database->get_koneksi();
-$DosenController = new DosenController($db);
-$Dosen = $DosenController->getAllDosen();
+include '../classes/Database.php';
+$db = new Database();
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php include '../views/layout/head.php' ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+   <?php include('./layout/navbar.php')?>
     <div class="container mt-3">
         <h1>Dosen</h1>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -41,7 +44,7 @@ $Dosen = $DosenController->getAllDosen();
             <tbody class="table-group-divider">
                 <?php
                 $no = 1;
-                foreach ($Dosen as $item) {
+                foreach ($db->tampil_dosen() as $item) {
                 ?>
                     <tr>
                         <th scope="row"><?= $no++ ?></th>
@@ -53,8 +56,8 @@ $Dosen = $DosenController->getAllDosen();
                         <td><?= $item['agama'] ?></td>
                         <td><?= $item['alamat'] ?></td>
                         <td>
-                            <a href="edit-dosen.php?id=<?= $item['nip'] ?> " class="btn btn-warning">edit</a>
-                            <a href="delete.php?id=<?= $item['nip'] ?>&aksi=hapus" onclick="return confirm('Apakah yakin iniin menghapus')" class="btn btn-danger">hapus</a>
+                            <a href="edit-dosen.php?id=<?= $item['nip'] ?>&aksi=editdosen" class="btn btn-warning">edit</a>
+                            <a href="./add-action.php?id=<?= $item['nip'] ?>&aksi=hapusdosen" onclick="return confirm('Apakah yakin ingin menghapus')" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                 <?php
@@ -65,9 +68,9 @@ $Dosen = $DosenController->getAllDosen();
 
 
 
-    <?php include '../layout/script.php' ?>
-    <script src="../../public/assets/js/script.js"></script>
-    <?php include '../Component-dosen/modaladd.php' ?>
+    <?php include '../views/layout/script.php' ?>
+    <script src="./layout/script.js"></script>
+    <?php include '../views/component/modalDosen.php' ?>
 </body>
 
 </html>

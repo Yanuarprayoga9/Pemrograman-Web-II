@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <?php include './views/layout/head.php' ?>
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
 <body>
     <nav class="navbar navbar-expand-lg bg-primary border-bottom border-body" data-bs-theme="dark">
@@ -15,47 +16,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./views/mahasiswa/">Mahasiswa</a>
+                        <a class="nav-link" href="mahasiswa">Mahasiswa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./views/dosen/">Dosen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="dosen">Dosen</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <h1 class="text-center">SIAKAD</h1>
-    <div class="container mx-auto m-3 d-flex gap-4 justify-content-around">
-        <div class="card" style="width: 18rem;">
-            <img src="./public/assets/image/defaultjpg.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Mahasiswa</h5>
-                <a href="./views/mahasiswa/" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="./public/assets/image/defaultjpg.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Dosen</h5>
-                <a href="./views/dosen/" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="./public/assets/image/defaultjpg.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">...</h5>
-                <a href="./views/mahasiswa/" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-    <?php include './views/layout/script.php' ?>
-
-</body>
-
-</html>
+    

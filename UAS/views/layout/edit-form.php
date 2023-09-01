@@ -1,28 +1,17 @@
-<form action="?id=<?php echo $_POST['id']; ?>" method="POST">
+<form action="?id=<?php echo $_GET['id']; ?>" method="post">
     <?php 
      foreach ($mahasiswa as $item) {
     ?>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">NIM</label>
-            <input type="number" class="form-control" name="npm" value="<?php echo $item['npm']; ?>">
+            <input type="number" class="form-control" name="nim" value="<?php echo $item['nim']; ?>">
             <input type="number" class="form-control" name="id" value="<?php echo $_GET['id']; ?>" disabled>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">nama</label>
-            <input type="text" class="form-control" name="nama" value="<?php echo $item['nama']; ?>">
+            <input type="text" class="form-control" name="nama" value="<?= $item['nama'] ?>">
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">program studi</label>
-            <input type="text" class="form-control" name="program_study" value="<?php echo $item['program_study']; ?>">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"> tempat lahir</label>
-            <input type="text" class="form-control" name="tempat_lahir" value="<?php echo $item['tempat_lahir']; ?>">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">tanggall lahir</label>
-            <input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $item['tanggal_lahir']; ?>">
-        </div>
+       
         <div class="form-check">
             <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1" value="laki-laki" <?php echo ($item['jenis_kelamin'] == 'laki-laki') ? 'checked' : ''; ?>>
             <label class="form-check-label" for="jenis_kelamin1">
@@ -34,10 +23,6 @@
             <label class="form-check-label" for="flexRadioDefault2">
                 Perempuan
             </label>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">agama</label>
-            <input type="text" class="form-control" name="agama" value="<?php echo $item['agama']; ?>">
         </div>
         <div class="form-floating">
             <textarea class="form-control" placeholder="alamat" id="floatingTextarea2" style="height: 100px" name="alamat"><?php echo $item['alamat']; ?></textarea>

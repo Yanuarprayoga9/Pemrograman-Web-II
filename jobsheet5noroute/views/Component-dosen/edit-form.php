@@ -1,62 +1,15 @@
-<?php
-include_once '../../config.php';
-include_once '../../models/Mahasiswa.php';
-include_once '../../controllers/MahasiswaController.php';
-
-$database = new Database();
-$db= $database->get_koneksi();
-$mahasiswaController = new MahasiswaController($db);
-// $mahasiswa = $mahasiswaController->getMahasiswaById($_GET['id']);
-
-if (isset($_POST['submit'])) {
-    $mahasiswa = $mahasiswaController->getMahasiswaById($_GET['id']);
-    $npm = $_POST['npm'];
-    $program_study = $_POST['program_study'];
-    $nama = $_POST['nama'];
-    $tempat_lahir = $_POST['tempat_lahir'];
-    $tanggal_lahir = $_POST['tanggal_lahir'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $agama = $_POST['agama'];
-    $alamat = $_POST['alamat'];
-
-    $mahasiswaController->updateMahasiswa($_GET['id'], $npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
-        header('Location: index.php'); // Ganti dengan URL yang sesuai
-    
-
-}
-?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <?php include '../layout/head.php' ?>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-</head>
-
-<body>
-    <?php include '../layout/navbar.php' ?>
-    <div class="container mt-3">
-        <h1>Edit Mahasiswa</h1>
-    <div class="container my-3">
-        <form action="?id=<?php echo $_GET['id']; ?>" method="POST">
+<form action="?id=<?php echo $_GET['id']; ?>" method="post">
     <?php 
-     foreach ($mahasiswa as $item) {
+     foreach ($dosen as $item) {
     ?>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">NIM</label>
-            <input type="number" class="form-control" name="npm" value="<?php echo $item['npm']; ?>">
+            <label for="exampleInputEmail1" class="form-label">NIP</label>
+            <input type="number" class="form-control" name="nip" value="<?php echo $item['nip']; ?>">
             <input type="number" class="form-control" name="id" value="<?php echo $_GET['id']; ?>" disabled>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">nama</label>
             <input type="text" class="form-control" name="nama" value="<?php echo $item['nama']; ?>">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">program studi</label>
-            <input type="text" class="form-control" name="program_study" value="<?php echo $item['program_study']; ?>">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label"> tempat lahir</label>
@@ -91,9 +44,3 @@ if (isset($_POST['submit'])) {
     <?php 
      }
     ?>
-    </div>
-
-    <?php include '../layout/script.php' ?>
-</body>
-
-</html>

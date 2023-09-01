@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="mahasiswa/add-action.php" method="post">
+                <form action="../mahasiswa/add-action.php" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">NIM</label>
                         <input type="number" class="form-control" name="npm" required>

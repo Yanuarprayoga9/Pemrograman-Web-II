@@ -2,7 +2,6 @@
 include_once '../../config.php';
 include_once '../../models/Dosen.php';
 include_once '../../controllers/DosenController.php';
-require '../../index.php';
 
 $database = new Database();
 $db = $database->get_koneksi();
@@ -10,9 +9,17 @@ $DosenController = new DosenController($db);
 $Dosen = $DosenController->getAllDosen();
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php include '../layout/head.php' ?></head>
+
+<body>
+    <?php include '../layout/navbar.php' ?>
     <div class="container mt-3">
-        <h1>Dosen</h1>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <h1 class="mb-3">Dosen</h1>
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah data
         </button>
         <?php

@@ -10,18 +10,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="mahasiswa/add-action.php" method="post">
+                <form action="..//views/add-action.php?aksi=tambahdosen" method="post">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">NIM</label>
-                        <input type="number" class="form-control" name="npm" required>
+                        <label for="exampleInputEmail1" class="form-label">NIP</label>
+                        <input type="number" class="form-control" name="nip" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">nama</label>
                         <input type="text" class="form-control" name="nama" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">program studi</label>
-                        <input type="text" class="form-control" name="program_study" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label"> tempat lahir</label>
@@ -54,7 +50,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" name="submit">submit</button>
+                <button type="submit" class="btn btn-primary">submit</button>
             </div>
             </form>
         </div>

@@ -1,49 +1,6 @@
-<?php
-include_once '../../config.php';
-include_once '../../models/Mahasiswa.php';
-include_once '../../controllers/MahasiswaController.php';
-
-$database = new Database();
-$db= $database->get_koneksi();
-$mahasiswaController = new MahasiswaController($db);
-// $mahasiswa = $mahasiswaController->getMahasiswaById($_GET['id']);
-
-if (isset($_POST['submit'])) {
-    $mahasiswa = $mahasiswaController->getMahasiswaById($_GET['id']);
-    $npm = $_POST['npm'];
-    $program_study = $_POST['program_study'];
-    $nama = $_POST['nama'];
-    $tempat_lahir = $_POST['tempat_lahir'];
-    $tanggal_lahir = $_POST['tanggal_lahir'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $agama = $_POST['agama'];
-    $alamat = $_POST['alamat'];
-
-    $mahasiswaController->updateMahasiswa($_GET['id'], $npm, $program_study, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat);
-        header('Location: index.php'); // Ganti dengan URL yang sesuai
-    
-
-}
-?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <?php include '../layout/head.php' ?>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-</head>
-
-<body>
-    <?php include '../layout/navbar.php' ?>
-    <div class="container mt-3">
-        <h1>Edit Mahasiswa</h1>
-    <div class="container my-3">
-        <form action="?id=<?php echo $_GET['id']; ?>" method="POST">
+<form action="../views/add-action.php?aksi=update&id=<?php echo $_GET['id']; ?>" method="post">
     <?php 
-     foreach ($mahasiswa as $item) {
+     foreach ($db->edit_mahasiswa($_GET['id']) as $item) {
     ?>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">NIM</label>
@@ -86,14 +43,8 @@ if (isset($_POST['submit'])) {
             <textarea class="form-control" placeholder="alamat" id="floatingTextarea2" style="height: 100px" name="alamat"><?php echo $item['alamat']; ?></textarea>
             <label for="floatingTextarea2">Alamat</label>
         </div>
-        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <?php 
      }
     ?>
-    </div>
-
-    <?php include '../layout/script.php' ?>
-</body>
-
-</html>
